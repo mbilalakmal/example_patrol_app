@@ -5,7 +5,7 @@ import 'package:patrol/patrol.dart';
 void main() {
   patrolTest(
     'counter state is the same after going to home and switching apps',
-    // nativeAutomation: true,
+    nativeAutomation: true,
     ($) async {
       // Replace later with your app's main widget
       await $.pumpWidgetAndSettle(
@@ -19,6 +19,7 @@ void main() {
 
       expect($('app'), findsOneWidget);
       await $.native.pressHome();
+      await $.native.openApp();
     },
   );
 }
